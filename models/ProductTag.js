@@ -6,7 +6,7 @@ class ProductTag extends Model {}
 // setting up like mysql constraints
 //product tag will require id, 
 //allowNulL: false >> must be filled in
-//exampe from seeds
+//example from seeds
 // {
 //   product_id: 1,
 //   tag_id: 6,

@@ -3,10 +3,16 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
 
 class Category extends Model {}
-
+//example from seeds
+// {
+//   category_name: 'Shorts',
+// }
 Category.init(
   {
-    // define columns
+    category_name: {
+    type: DataTypes.STRING,
+    allowNull: false
+    }
   },
   {
     sequelize,

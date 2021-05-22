@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
 
-class Tag extends Model {}
+class Tag extends Model { }
 //set up like mysql constraints
 Tag.init(
   {

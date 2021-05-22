@@ -10,19 +10,31 @@ router.get('/', (req, res) => {
   Product.findAll(
     //object
     {
-    include: {
-      model: Tag
-    }
+      include: {
+        model: Tag
+      }
     }
   ).then(productGet => {
     res.json(productGet);
   });
-  });
+});
 
 // get one product
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
+  Category.findOne(
+    {
+      where: {
+        id: req.params.id,
+      },
+      include: {
+        model: Tag
+      }
+    }
+  ).then(productGet => {
+    res.json(productGet);
+  });
 });
 
 // create new product
@@ -101,6 +113,15 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
+  Product.destroy(
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+  ).then(productDestroy => {
+    res.json(productDestroy);
+  });
 });
 
 module.exports = router;

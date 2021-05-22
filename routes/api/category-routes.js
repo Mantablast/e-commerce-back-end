@@ -14,31 +14,31 @@ const { Category, Product } = require('../../models');
 router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products //findAll
-//Call table and function to use
-Category.findAll(
-  //object
-  {
-  include: {
-    model: Product
-  }
-  }
-).then(categoryGet => {
-  res.json(categoryGet);
-});
+  //Call table and function to use
+  Category.findAll(
+    //object
+    {
+      include: {
+        model: Product
+      }
+    }
+  ).then(categoryGet => {
+    res.json(categoryGet);
+  });
 });
 
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products  //probably use findOne
   Category.findOne(
-  {
-    where: {
-      id: req.params.id,
-    },
-    include: {
-      model: Product
+    {
+      where: {
+        id: req.params.id,
+      },
+      include: {
+        model: Product
+      }
     }
-  }
   ).then(categoryGet => {
     res.json(categoryGet);
   });
@@ -55,12 +55,12 @@ router.post('/', (req, res) => {
   Category.create({
     category_name: req.body.category_name
   })
-  //send to json
-  .then(categoryPost => {
-    res.json(categoryPost);
-  });
+    //send to json
+    .then(categoryPost => {
+      res.json(categoryPost);
+    });
 });
-  
+
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value //Update
@@ -69,19 +69,19 @@ router.put('/:id', (req, res) => {
   //   "id": 6,
   //   "category_name": "Underwear"
   // }
-Category.update(
-  //instruct where
-  {
-    where: {
-      id: req.params.id,
+  Category.update(
+    //instruct where
+    {
+      where: {
+        id: req.params.id,
+      },
     },
-  },
-  {
-    category_name: req.body.category_name
-  }
-).then(categoryUpdate => {
-  res.json(categoryUpdate);
-});
+    {
+      category_name: req.body.category_name
+    }
+  ).then(categoryUpdate => {
+    res.json(categoryUpdate);
+  });
 });
 
 router.delete('/:id', (req, res) => {

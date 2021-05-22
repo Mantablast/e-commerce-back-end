@@ -1,17 +1,19 @@
 const { Model, DataTypes } = require('sequelize');
 
-const sequelize = require('../config/connection.js');
+const sequelize = require('../config/connection');
 
 class Tag extends Model {}
-//example from seeds
-// {
-//   tag_name: 'rock music',
-// },
+//set up like mysql constraints
 Tag.init(
   {
-    tag: {
-    type: DataTypes.STRING,
-    allowNull: false
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    tag_name: {
+      type: DataTypes.STRING
     }
   },
   {
@@ -19,7 +21,8 @@ Tag.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'tag',
+    //match the model names
+    modelName: 'tag'
   }
 );
 

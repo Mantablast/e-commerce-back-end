@@ -6,13 +6,13 @@ const { Tag, Product, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
   // find all tags
   // be sure to include its associated Product data
-  Tag.findAll(
+  ProductTag.findAll(
     //object
-    {
-      include: {
-        model: Product
-      }
-    }
+    // {
+    //   include: {
+    //     model: Tag
+    //   }
+    // }
   ).then(tagGet => {
     res.json(tagGet);
   });
@@ -21,14 +21,14 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
-  Tag.findOne(
+  ProductTag.findOne(
     {
       where: {
         id: req.params.id,
-      },
-      include: {
-        model: Product
       }
+      // include: {
+      //   model: Product
+      // }
     }
   ).then(tagGet => {
     res.json(tagGet);
@@ -58,7 +58,7 @@ router.put('/:id', (req, res) => {
   // {
   //   tag_name: 'pop music',
   // }
-  Category.update(
+Tag.update(
     //instruct where
     {
       where: {
@@ -75,7 +75,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
-  Tag.destroy(
+ProductTag.destroy(
     {
       where: {
         id: req.params.id

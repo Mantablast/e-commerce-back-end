@@ -5,9 +5,7 @@ const sequelize = require('../config/connection');
 // {
 //   category_name: 'Shorts',
 // }
-
-
-class Category extends Model {}
+class Category extends Model { }
 
 Category.init(
   {
@@ -16,12 +14,10 @@ Category.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
-  }
-  },
-  {
+    },
     category_name: {
-    type: DataTypes.STRING,
-    allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false
     }
   },
   {
@@ -29,7 +25,7 @@ Category.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'category',
+    modelName: 'category'
   }
 );
 

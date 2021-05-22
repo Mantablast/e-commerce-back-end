@@ -2,6 +2,7 @@
 
 ## Description
 ![Screenshot](./assets/images/apiscreen.png)
+![Screenshot](./assets/images/tableshot.png)
 This is an ecommerce back end for a clothing or music store
 
 Project by: Aimee J  

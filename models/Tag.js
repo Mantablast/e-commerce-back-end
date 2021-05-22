@@ -4,6 +4,18 @@ const sequelize = require('../config/connection');
 
 class Tag extends Model { }
 //set up like mysql constraints
+
+// Tag
+// id
+// Integer
+// Doesn't allow null values
+// Set as primary key
+// Uses auto increment
+
+// tag_name
+// String
+
+
 Tag.init(
   {
     id: {
@@ -14,6 +26,7 @@ Tag.init(
     },
     tag_name: {
       type: DataTypes.STRING
+      //can be null according to criteria
     }
   },
   {

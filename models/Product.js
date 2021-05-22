@@ -72,7 +72,7 @@ Product.init(
         model: 'category',
         key: 'id'
       },
-      allowNull: false
+      //can be null according to criteria
     }
   },
   {

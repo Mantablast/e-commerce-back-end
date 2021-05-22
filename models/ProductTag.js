@@ -4,8 +4,23 @@ const sequelize = require('../config/connection');
 
 class ProductTag extends Model { }
 // setting up like mysql constraints
-//product tag will require id, 
-//allowNulL: false >> must be filled in
+
+// ProductTag
+// id
+// Integer
+// Doesn't allow null values
+// Set as primary key
+// Uses auto increment
+
+// product_id
+// Integer
+// References the product model's id
+
+// tag_id
+// Integer
+// References the tag model's id
+
+
 //example from seeds
 // {
 //   product_id: 1,
@@ -21,7 +36,7 @@ ProductTag.init(
     },
     product_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       //foreign key 
       references: {
         model: 'product',
@@ -30,7 +45,7 @@ ProductTag.init(
     },
     tag_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       //foreign key reference
       references: {
         model: 'tag',
